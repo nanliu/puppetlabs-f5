@@ -3,7 +3,7 @@ require 'digest/sha1'
 Puppet::Type.newtype(:f5_key) do
   @doc = "Manage F5 key."
 
-  apply_to_device
+  # apply_to_device
 
   ensurable do
     desc "Add or delete key."
