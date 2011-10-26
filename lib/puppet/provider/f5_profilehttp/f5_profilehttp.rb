@@ -63,11 +63,11 @@ Puppet::Type.type(:f5_profilehttp).provide(:f5_profilehttp, :parent => Puppet::P
   end
 
   def create
-    Puppet.debug("Puppet::Provider::F5_ProfileClientSSL: creating F5 client ssl profile #{resource[:name]}")
+    Puppet.debug("Puppet::Provider::F5_ProfileHttp: creating profile #{resource[:name]}")
   end
 
   def destroy
-    Puppet.debug("Puppet::Provider::F5_ProfileClientSSL: destroying F5 client ssl profile #{resource[:name]}")
+    Puppet.debug("Puppet::Provider::F5_ProfileHttp: destroying profile #{resource[:name]}")
     transport[wsdl].delete_profile([resource[:name]])
   end
 

@@ -1,10 +1,10 @@
 Puppet::Type.newtype(:f5_profilehttp) do
   @doc = "Manage F5 http profiles."
 
-#  apply_to_device
+  apply_to_device
 
   ensurable do
-    desc "Add or delete http profile."
+    desc "Manage F5 http profile."
 
     defaultto(:present)
 
@@ -18,7 +18,7 @@ Puppet::Type.newtype(:f5_profilehttp) do
   end
 
   newparam(:name, :namevar=>true) do
-    desc "The Client SSL profile name."
+    desc "The http profile name."
   end
 
   newproperty(:basic_auth_realm) do
