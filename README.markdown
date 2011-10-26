@@ -194,6 +194,36 @@ Certificates comparison is completed via sha1 fingerprint which is also used dur
       session_enabled_state => 'STATE_ENABLED',
     }
 
+F5 profile:
+
+    f5_profilehttp { 'http-wan-optimized-compression-caching':
+      ensure                                 => 'present',
+      basic_auth_realm                       => { 'default_flag' => 'true',
+                                                  'value'        => '' },
+      header_erase                           => { 'default_flag' => 'true',
+                                                  'value'        => '' },
+      header_insert                          => { 'default_flag' => 'true',
+                                                  'value'        => '' },
+      insert_xforwarded_for_header_mode      => { 'default_flag' => 'true',
+                                                  'value'        => 'PROFILE_MODE_DISABLED' },
+      lws_maximum_column                     => { 'default_flag' => 'true',
+                                                  'value'        => '80' },
+      maximum_header_size                    => { 'default_flag' => 'true',
+                                                  'value'        => '32768' },
+      maximum_requests                       => { 'default_flag' => 'true',
+                                                  'value'        => '0' },
+      oneconnect_header_transformation_state => { 'default_flag' => 'false',
+                                                  'value'        => 'STATE_ENABLED' },
+      pipelining_mode                        => { 'default_flag' => 'true',
+                                                  'value'        => 'PROFILE_MODE_ENABLED' },
+      redirect_rewrite_mode                  => { 'default_flag' => 'true',
+                                                  'value'        => 'HTTP_REDIRECT_REWRITE_MODE_NONE' },
+      response_chunk_mode                    => { 'default_flag' => 'false',
+                                                  'value'        => 'HTTP_CHUNK_MODE_SELECTIVE' },
+      security_enabled_request_state         => { 'default_flag' => 'true',
+                                                  'value'        => 'STATE_DISABLED' },
+    }
+
 F5_pool resource notes:
 
 * The member attribute is not order dependent, the monitor_associate is order dependent.
