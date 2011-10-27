@@ -196,6 +196,22 @@ Certificates comparison is completed via sha1 fingerprint which is also used dur
 
 F5 profile:
 
+    f5_profileauth { 'tacacs':
+      ensure                => 'present',
+      authentication_method => { 'default_flag' => 'false',
+                                 'value'        => 'AUTHENTICATION_METHOD_TACACS' },
+      configuration_name    => { 'default_flag' => 'true',
+                                 'value'        => '' },
+      credential_source     => { 'default_flag' => 'false',
+                                 'value'        => 'CREDENTIAL_SOURCE_HTTP_BASIC_AUTH' },
+      idle_timeout          => { 'default_flag' => 'true',
+                                 'value'        => '300' },
+      profile_mode          => { 'default_flag' => 'false',
+                                 'value'        => 'PROFILE_MODE_ENABLED' },
+      rule_name             => { 'default_flag' => 'false',
+                                 'value'        => '' },
+    }
+
     f5_profilehttp { 'http-wan-optimized-compression-caching':
       ensure                                 => 'present',
       basic_auth_realm                       => { 'default_flag' => 'true',
@@ -222,6 +238,29 @@ F5 profile:
                                                   'value'        => 'HTTP_CHUNK_MODE_SELECTIVE' },
       security_enabled_request_state         => { 'default_flag' => 'true',
                                                   'value'        => 'STATE_DISABLED' },
+    }
+
+    f5_profilehttpclass { 'httpdemo':
+      ensure                                    => 'present',
+      application_security_module_enabled_state => { 'default_flag' => 'true',
+                                                     'value'        => 'STATE_DISABLED' },
+      cookie_match_pattern                      => { 'default_flag' => 'false',
+                                                     'value'        => '' },
+      header_match_pattern                      => { 'default_flag' => 'false',
+                                                     'value'        => [ { 'pattern' => '/^run_dmc$/', 'is_glob' => false },
+                                                                         { 'pattern' => 'cj2k', 'is_glob' => true } ],
+      host_match_pattern                        => { 'default_flag' => 'false',
+                                                     'value'        => '' },
+      path_match_pattern                        => { 'default_flag' => 'false',
+                                                     'value'        => '' },
+      pool_name                                 => { 'default_flag' => 'true',
+                                                     'value'        => '' },
+      redirect_location                         => { 'default_flag' => 'true',
+                                                     'value'        => '' },
+      rewrite_url                               => { 'default_flag' => 'true',
+                                                     'value'        => '' },
+      web_accelerator_module_enabled_state      => { 'default_flag' => 'true',
+                                                     'value'        => 'STATE_DISABLED' },
     }
 
 F5_pool resource notes:
