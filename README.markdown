@@ -288,13 +288,17 @@ F5_virtualserver does not atomically change rules (F5 API limitation), so to reo
       wildmask                => '255.255.255.255',
     }
 
-## Development
-
-The following section applies to developers of this module only.
-
-### Testing
+## Testing
 
 You will need to install the 'f5-icontrol' gem for most of the tests to work.
 This file is available in the 'files' section of this module.
 
     gem install --no-ri files/f5-icontrol-10.2.0.2.gem
+
+## Development
+
+The following section applies to developers of this module only. Contributers please review [contributor documentation](CONTRIBUTING.md) for additional information.
+
+Please write unit test for new modules and verify all code pass unit test via (require version of rspec that supports support/ directory):
+
+    rake tests
