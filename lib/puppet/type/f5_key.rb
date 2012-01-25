@@ -3,7 +3,7 @@ require 'puppet/util/network_device/f5'
 Puppet::Type.newtype(:f5_key) do
   @doc = "Manage F5 key."
 
-  apply_to_device
+  apply_to_all
 
   ensurable do
     desc "F5 key resource state. Valid values are present, absent."

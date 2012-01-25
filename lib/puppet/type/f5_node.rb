@@ -1,7 +1,7 @@
 Puppet::Type.newtype(:f5_node) do
   @doc = "Manage F5 node."
 
-  apply_to_device
+  apply_to_all
 
   ensurable do
     desc "F5 node resource state. Valid values are present, absent."

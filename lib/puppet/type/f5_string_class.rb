@@ -1,7 +1,7 @@
 Puppet::Type.newtype(:f5_string_class) do
   @doc = "Manages F5 String classes (datagroups)"
 
-  apply_to_device
+  apply_to_all
 
   ensurable do
     desc "F5 Sting Class resource state. Valid values are present, absent."

@@ -1,7 +1,7 @@
 Puppet::Type.newtype(:f5_rule) do
   @doc = "Manage F5 rule."
 
-  apply_to_device
+  apply_to_all
 
   ensurable do
     desc "F5 rule resource state. Valid values are present, absent."

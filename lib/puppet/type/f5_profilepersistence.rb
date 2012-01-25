@@ -1,7 +1,7 @@
 Puppet::Type.newtype(:f5_profilepersistence) do
   @doc = "Manage F5 Client SSL profiles."
 
-  #apply_to_device
+  apply_to_all
 
   ensurable do
     desc "F5 profilepersistence resource state. Valid values are present, absent."

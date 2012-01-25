@@ -1,7 +1,7 @@
 Puppet::Type.newtype(:f5_file) do
   @doc = "Manages F5 file."
 
-  apply_to_device
+  apply_to_all
 
   ensurable do
     desc "F5 file resource state. Valid values are present, absent."

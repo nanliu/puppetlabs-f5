@@ -1,7 +1,7 @@
 Puppet::Type.newtype(:f5_snat) do
   @doc = "Manage F5 snat."
 
-  apply_to_device
+  apply_to_all
 
   ensurable do
     desc "F5 snat resource state. Valid values are present, absent."

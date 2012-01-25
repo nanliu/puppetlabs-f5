@@ -4,7 +4,7 @@ require 'puppet/property/keyvalue'
 Puppet::Type.newtype(:f5_monitor) do
   @doc = "Manage F5 monitor."
 
-  apply_to_device
+  apply_to_all
 
   ensurable do
     desc "F5 monitor resource state. Valid values are present, absent."

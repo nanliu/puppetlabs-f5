@@ -1,7 +1,7 @@
 Puppet::Type.newtype(:f5_snattranslationaddress) do
   @doc = "Manage F5 snat translation address."
 
-  apply_to_device
+  apply_to_all
 
   ensurable do
     desc "F5 snattranstlationaddress resource state. Valid values are present,

@@ -1,8 +1,9 @@
 require 'puppet/property/list'
+
 Puppet::Type.newtype(:f5_snatpool) do
   @doc = "Manage F5 snatpool."
 
-  apply_to_device
+  apply_to_all
 
   ensurable do
     desc "F5 snatpool resource state. Valid values are present, absent."

@@ -3,7 +3,7 @@ require 'puppet/property/list'
 Puppet::Type.newtype(:f5_pool) do
   @doc = "Manage F5 pool."
 
-  apply_to_device
+  apply_to_all
 
   ensurable do
     desc "F5 pool resource state. Valid values are present, absent."

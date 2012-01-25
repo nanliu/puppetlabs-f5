@@ -17,7 +17,7 @@ Puppet::Type.newtype(:f5_virtualserver) do
 
   @doc = "Manage F5 virtualserver."
 
-  apply_to_device
+  apply_to_all
 
   ensurable do
     desc "Add or delete virtualserver."
