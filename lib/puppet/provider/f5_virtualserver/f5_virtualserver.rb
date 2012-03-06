@@ -133,6 +133,14 @@ Puppet::Type.type(:f5_virtualserver).provide(:f5_virtualserver, :parent => Puppe
 
     transport[wsdl].remove_persistence_profile(resource[:name], [to_remove]) unless to_remove.empty?
     transport[wsdl].add_persistence_profile(resource[:name], [to_add]) unless to_add.empty?
+
+    # per discussion with F5 we must disable/re-enable virtualserver for active systems for changes to take effect
+    if resource[:enabled_state] == 'STATE_ENABLED'
+      Puppet.debug('Puppet::Provider::F5_VirtualServer: disruptive work around, disabling virtual server.')
+      self.enabled_state('STATE_DISABLED')
+      Puppet.debug('Puppet::Provider::F5_VirtualServer: disruptive work around, enabling virtual server.')
+      self.enabled_state('STATE_ENABLED')
+    end
   end
 
   def profile
